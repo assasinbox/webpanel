@@ -1,0 +1,6 @@
+{
+  "port": 8989,
+  "cssUrls": "https://dev39_static.pdffiller.com/css",
+  "jsUrls": "https://dev_static.pdffiller.com/js",
+  "reactUrls": "https://static-local.pdffiller.com/frontend"
+}
