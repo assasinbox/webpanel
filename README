@@ -1,0 +1,6 @@
+'use strict';
+
+npm install webpanel
+mkdir build.js
+gulp [dev, watch, pub] --gulpfile node_modules/webpanel/gulpfile.js --build ../../build.js
+node node_modules/webpanel/app.js
