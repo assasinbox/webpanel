@@ -24,7 +24,8 @@ babel = require('gulp-babel');
 babelifyConfig = {
   global: false,
   presets: ['react', 'es2015', 'stage-0'],
-  plugins: ['transform-decorators-legacy']
+  plugins: ['transform-decorators-legacy'],
+  ignore: ['/node_modules/']
 };
 
 runBrowserifyTask = function(options) {
@@ -87,7 +88,7 @@ getBundleName = function(){
 gulp.task('watch', function() {
   return runBrowserifyTask({
     watch: true,
-    dest: 'public/',
+    dest: './',
     uglify: false,
     gzip: false,
     bundle: getBundleName(),
@@ -109,7 +110,7 @@ gulp.task('dev', function() {
 gulp.task('pub', function() {
   return runBrowserifyTask({
     watch: false,
-    dest: 'public/',
+    dest: './',
     uglify: false,
     gzip: true,
     bundle: getBundleName(),
