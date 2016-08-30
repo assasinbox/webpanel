@@ -23,8 +23,8 @@ babel = require('gulp-babel');
 
 babelifyConfig = {
   global: false,
-  presets: ['react', 'es2015']
-  // plugins: ['transform-decorators-legacy']
+  presets: ['react', 'es2015', 'stage-0'],
+  plugins: ['transform-decorators-legacy']
 };
 
 runBrowserifyTask = function(options) {
@@ -46,7 +46,7 @@ runBrowserifyTask = function(options) {
     cache: {},
     packageCache: {},
     fullPaths: true
-  }).require(require.resolve('./index.js'), {entry: true}).transform(babelify, babelifyConfig).external('react').external('react-dom');
+  }).require(require.resolve(options.bundle), {entry: true}).transform(babelify, babelifyConfig).external('react').external('react-dom');
 
   reBundle = function() {
     var start;
@@ -72,7 +72,13 @@ getDestinationFolder = function(){
 
 getBundleName = function(){
 
-  return '';
+  for (var i = 0; i < process.argv.length; i++) {
+    if (process.argv[i] === '--build' && process.argv[i + 1]) {
+      return process.argv[i + 1]
+    }
+  }
+
+  return './';
 
   // return process.argv[3] === '--gulpfile' ? process.argv[6].split('--')[1] : process.argv[3].split('--')[1];
 

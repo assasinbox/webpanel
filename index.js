@@ -15,7 +15,7 @@ document.body.appendChild(modalsRoot);
 
 ReactDOM.render(
   <div>
-    <button onClick={() => alert(1) }>Open Image Manager</button>
+    <button onClick={() => alert(1) }>Test 1</button>
     <button onClick={() => alert(2) }>Open Signature Manager</button>
 
   </div>,
