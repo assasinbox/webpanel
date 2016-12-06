@@ -111,7 +111,7 @@ gulp.task('pub', function() {
   return runBrowserifyTask({
     watch: false,
     dest: './',
-    uglify: false,
+    uglify: true,
     gzip: true,
     bundle: getBundleName(),
     destinationFolder: getDestinationFolder()
